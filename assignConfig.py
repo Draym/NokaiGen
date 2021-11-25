@@ -12,10 +12,12 @@ lastConfig = len(configFiles)
 
 class Config:
     id = 0
-    file = ''
-    def __init__(self, id, file):
+    name = ''
+    image = ''
+    def __init__(self, id, name, image):
         self.id = id
-        self.file = file
+        self.name = name
+        self.image = image
     def toJson(self):
         return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 
@@ -26,7 +28,7 @@ configs = []
 
 def configExist(file):
     for config in configs:
-        if config.file == file:
+        if config.id == id:
             return True
     return False
 
@@ -37,7 +39,7 @@ for index, file in enumerate(configFiles):
 position = lastConfig
 for index, file in enumerate(imageFiles):
     if configExist(file) == False:
-        config = Config(position, file)
+        config = Config(position, file.replace('.png', ''), file)
         with open(f'config/{position}.json', 'w', encoding="utf8") as my_file:
             my_file.write(config.toJson())
             position += 1
