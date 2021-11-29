@@ -23,3 +23,7 @@ python assignName.py
 ```
 python assignConfig.py
 ```
+
+### **Result**
+
+<img src="sample/sample1.PNG" height="237" alt="sample">
