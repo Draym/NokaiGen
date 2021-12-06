@@ -28,7 +28,7 @@ configs = []
 
 def configExist(file):
     for config in configs:
-        if config.id == id:
+        if config.image == file:
             return True
     return False
 
